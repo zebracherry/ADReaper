@@ -898,20 +898,28 @@ SEV_STYLE = {
 }
 
 def print_banner(args):
+    banner_art = r"""
+    ___  ____  ____  ___  __   ____  ____  ____
+   / _ \|  _ \| ___|| _ \ \ \ / /\ \/ /\ \/ /\ \
+  | | | | | | | |_  | |_) | \ V /  \  /  \  /  |
+  | |_| | |_| | |_  |  _ <   | |   /  \  /  \   |
+   \___/|____/|___| |_| \_\  |_|  /_/\_\/_/\_\  |
+    """
     console.print(Panel(
         Text.assemble(
-            (" ▄▄  ▄▄▄  ▄▄▄  ▄▄▄  ▄▄  ▄▄▄  ▄▄▄  ▄▄▄  ▄▄▄  ▄▄▄ \n", "bold red"),
-            ("│AD │ R  │ E  │ A  │ P  │ E  │ R  │    │ v1 │.0  │\n", "bold red"),
-            (" ▀▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀▀▀  ▀▀▀ \n", "bold red"),
+            (banner_art, "bold red"),
+            ("  ADReaper — Active Directory & Windows Privilege Escalation Recon Tool\n", "bold white"),
+            ("  OSCP-compliant: enumeration only, no exploitation.\n", "yellow"),
+            ("  Author: Built for OSCP AD + PrivEsc enumeration workflow\n", "dim"),
             ("\n", ""),
-            ("  AD + Windows PrivEsc Recon  |  OSCP Compliant  |  No Exploitation\n", "bold white"),
-            (f"\n  Target DC : {args.dc_ip}\n", "dim"),
-            (f"  Domain    : {args.domain}\n", "dim"),
-            (f"  User      : {args.user or 'anonymous'}\n", "dim"),
+            (f"  Target DC : {args.dc_ip}\n", "cyan"),
+            (f"  Domain    : {args.domain}\n", "cyan"),
+            (f"  User      : {args.user or 'anonymous'}\n", "cyan"),
             (f"  Started   : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n", "dim"),
         ),
-        title="[bold red]ADReaper[/bold red]",
+        title="[bold red]  A D R e a p e r  [/bold red]",
         border_style="red",
+        padding=(0, 2),
     ))
 
 def print_domain_summary():
